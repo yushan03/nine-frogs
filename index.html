@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>九蛙秘境露營區 | Jiuwa Secret Camp</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      margin: 0;
+      background: #f8f5f0;
+      color: #333;
+    }
+    header {
+      background: #3d5a3d;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+    .lang-toggle {
+      color: white;
+    }
+    .hero {
+      background: url('https://source.unsplash.com/featured/?camping,nature') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #3d5a3d;
+    }
+    footer {
+      background: #3d5a3d;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong id="site-title">九蛙秘境露營區</strong></div>
+    <div class="lang-toggle">
+      <button onclick="setLang('zh')" style="background:none;border:none;color:white;cursor:pointer;">中文</button> |
+      <button onclick="setLang('en')" style="background:none;border:none;color:white;cursor:pointer;">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1 id="hero-title">綠色循環 × 小農在地 × 生態共榮</h1>
+  </div>
+
+  <div class="section">
+    <h2 id="concept-title">營運理念</h2>
+    <p id="concept-text">打造結合生態保育與社區共榮的永續露營區，核心精神為綠色循環、在地連結與療癒旅遊。</p>
+  </div>
+
+  <div class="section">
+    <h2 id="season-title">四季主題活動</h2>
+    <ul id="season-list">
+      <li>春季：賞螢節 × 小農季｜夜間導覽、茶蛋市集、手作茶體驗</li>
+      <li>夏季：森林露營 × 果香派對｜香蕉蛋糕DIY、在地水果茶飲、音樂野餐日</li>
+      <li>秋季：罐罐奶茶 × 慢活旅遊｜奶茶設計、林間散步、茶文化對談</li>
+      <li>冬季：熱紅酒 × 綠色市集｜暖心紅酒、年末禮盒、小農商品展售</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 id="products-title">在地小農風味</h2>
+    <p id="products-text">與日月潭周邊小農合作，推出茶葉蛋、紅茶蛋糕、香蕉蛋糕、水果塔與罐罐奶茶，並設有伴手禮專區。</p>
+  </div>
+
+  <div class="section">
+    <h2 id="story-title">綠色故事牆</h2>
+    <p id="story-text">營站入口設有綠色故事牆，介紹九蛙秘境的環境理念、永續行動與參與小農的故事，讓每位旅人感受土地的溫度。</p>
+  </div>
+
+  <footer>
+    <p id="contact">聯絡我們：jiuwa.camp@example.com</p>
+    <p>© 2025 九蛙秘境露營區</p>
+  </footer>
+
+  <script>
+    const translations = {
+      zh: {
+        siteTitle: "九蛙秘境露營區",
+        heroTitle: "綠色循環 × 小農在地 × 生態共榮",
+        conceptTitle: "營運理念",
+        conceptText: "打造結合生態保育與社區共榮的永續露營區，核心精神為綠色循環、在地連結與療癒旅遊。",
+        seasonTitle: "四季主題活動",
+        seasonList: [
+          "春季：賞螢節 × 小農季｜夜間導覽、茶蛋市集、手作茶體驗",
+          "夏季：森林露營 × 果香派對｜香蕉蛋糕DIY、在地水果茶飲、音樂野餐日",
+          "秋季：罐罐奶茶 × 慢活旅遊｜奶茶設計、林間散步、茶文化對談",
+          "冬季：熱紅酒 × 綠色市集｜暖心紅酒、年末禮盒、小農商品展售"
+        ],
+        productsTitle: "在地小農風味",
+        productsText: "與日月潭周邊小農合作，推出茶葉蛋、紅茶蛋糕、香蕉蛋糕、水果塔與罐罐奶茶，並設有伴手禮專區。",
+        storyTitle: "綠色故事牆",
+        storyText: "營站入口設有綠色故事牆，介紹九蛙秘境的環境理念、永續行動與參與小農的故事，讓每位旅人感受土地的溫度。",
+        contact: "聯絡我們：jiuwa.camp@example.com"
+      },
+      en: {
+        siteTitle: "Jiuwa Secret Camp",
+        heroTitle: "Green Living × Local Farming × Ecological Harmony",
+        conceptTitle: "Our Philosophy",
+        conceptText: "We create a sustainable campground rooted in ecology and local partnerships. Our core spirit is green circularity, local collaboration, and healing travel.",
+        seasonTitle: "Seasonal Highlights",
+        seasonList: [
+          "Spring: Firefly Festival × Local Market｜Night tours, tea egg stalls, tea DIY",
+          "Summer: Forest Camping × Fruit Party｜Banana cake DIY, seasonal tea, outdoor music",
+          "Autumn: Milk Tea × Slow Living｜Bottle milk tea, forest walks, tea culture talks",
+          "Winter: Mulled Wine × Green Market｜Warm red wine, year-end gift sets, farmer’s goods"
+        ],
+        productsTitle: "Local Flavors",
+        productsText: "Partnering with local farmers around Sun Moon Lake, we offer tea eggs, black tea cake, banana cake, fruit tarts and bottled milk tea, plus souvenirs.",
+        storyTitle: "Green Story Wall",
+        storyText: "At our entrance, the story wall introduces our environmental values, sustainability actions, and farmer partners—connecting every visitor to the land.",
+        contact: "Contact: jiuwa.camp@example.com"
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("site-title").textContent = t.siteTitle;
+      document.getElementById("hero-title").textContent = t.heroTitle;
+      document.getElementById("concept-title").textContent = t.conceptTitle;
+      document.getElementById("concept-text").textContent = t.conceptText;
+      document.getElementById("season-title").textContent = t.seasonTitle;
+
+      const seasonList = document.getElementById("season-list");
+      seasonList.innerHTML = "";
+      t.seasonList.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        seasonList.appendChild(li);
+      });
+
+      document.getElementById("products-title").textContent = t.productsTitle;
+      document.getElementById("products-text").textContent = t.productsText;
+      document.getElementById("story-title").textContent = t.storyTitle;
+      document.getElementById("story-text").textContent = t.storyText;
+      document.getElementById("contact").textContent = t.contact;
+    }
+
+    setLang('zh');
+  </script>
+</body>
+</html>
