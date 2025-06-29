@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>九蛙秘境露營區 - 預約付款</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background: #f3f3f3;
+      padding: 2rem;
+    }
+    .container {
+      background: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #3d5a3d;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      background: #3d5a3d;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2e4c2e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>露營預約表單</h1>
+    <form action="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5" method="post">
+      <label for="name">姓名</label>
+      <input type="text" name="CustomField1" required>
+
+      <label for="date">預約日期</label>
+      <input type="date" name="CustomField2" required>
+
+      <label for="note">備註</label>
+      <textarea name="CustomField3" rows="3"></textarea>
+
+      <input type="hidden" name="MerchantID" value="3002607">
+      <input type="hidden" name="MerchantTradeNo" value="JiwaCampTEST1234">
+      <input type="hidden" name="MerchantTradeDate" value="2025/06/29 12:00:00">
+      <input type="hidden" name="PaymentType" value="aio">
+      <input type="hidden" name="TotalAmount" value="1000">
+      <input type="hidden" name="TradeDesc" value="九蛙秘境露營預約費用">
+      <input type="hidden" name="ItemName" value="露營預約一晚">
+      <input type="hidden" name="ReturnURL" value="https://www.example.com/return">
+      <input type="hidden" name="ChoosePayment" value="Credit">
+      <input type="hidden" name="EncryptType" value="1">
+
+      <button type="submit">前往付款 (綠界測試模式)</button>
+    </form>
+  </div>
+</body>
+</html>
