@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>九蛙秘境露營區 | JIUWA CAMP</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      background: #f8f5f0;
+      color: #333;
+    }
+    header {
+      background: #3d5a3d;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+    }
+    .lang-toggle {
+      margin-left: auto;
+    }
+    .lang-toggle button {
+      margin-left: 0.5rem;
+      background: none;
+      border: 1px solid white;
+      padding: 0.25rem 0.5rem;
+      color: white;
+      cursor: pointer;
+    }
+    .hero {
+      background: url('https://source.unsplash.com/featured/?camping,nature') no-repeat center center/cover;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+    }
+    .booking-button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #f5f5f5;
+      color: #3d5a3d;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #3d5a3d;
+    }
+    .features, .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature, .product {
+      flex: 1 1 calc(50% - 2rem);
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    footer {
+      background: #3d5a3d;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong id="site-name">九蛙秘境露營區</strong></div>
+    <nav>
+      <a href="#about" id="nav-about">關於我們</a>
+      <a href="#activities" id="nav-activities">活動體驗</a>
+      <a href="#products" id="nav-products">在地商品</a>
+      <a href="#contact" id="nav-contact">聯絡我們</a>
+    </nav>
+    <div class="lang-toggle">
+      <button onclick="setLang('zh')">中</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 id="hero-title">走進自然・遇見螢光</h1>
+    <p id="hero-subtitle">沉浸於日月潭的生態秘境與在地風味</p>
+    <a href="booking.html"><button class="booking-button" id="booking-btn">線上訂位</button></a>
+  </section>
+
+  <section id="about">
+    <h2 id="about-title">我們的理念</h2>
+    <div class="features">
+      <div class="feature">
+        <h3 id="about-1-title">綠色循環</h3>
+        <p id="about-1-desc">使用可分解產品與友善農法推動永續環境。</p>
+      </div>
+      <div class="feature">
+        <h3 id="about-2-title">在地小農</h3>
+        <p id="about-2-desc">茶葉蛋、蛋糕與奶茶皆取材自日月潭在地農家。</p>
+      </div>
+      <div class="feature">
+        <h3 id="about-3-title">螢火蟲生態</h3>
+        <p id="about-3-desc">保育棲地並提供賞螢導覽活動。</p>
+      </div>
+      <div class="feature">
+        <h3 id="about-4-title">社會回饋</h3>
+        <p id="about-4-desc">營收部分定期捐贈自然保育與教育機構。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2 id="activities-title">熱門活動</h2>
+    <div class="features">
+      <div class="feature">
+        <h3 id="act-1-title">賞螢導覽</h3>
+        <p id="act-1-desc">每年3–5月限定活動。</p>
+      </div>
+      <div class="feature">
+        <h3 id="act-2-title">手作茶體驗</h3>
+        <p id="act-2-desc">與茶農一起揉茶學習茶文化。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <h2 id="products-title">小農風味商品</h2>
+    <div class="products">
+      <div class="product">
+        <h3 id="prod-1-title">紅茶蛋糕</h3>
+        <p id="prod-1-desc">採用當地紅茶與土雞蛋製作，香氣濃郁。</p>
+      </div>
+      <div class="product">
+        <h3 id="prod-2-title">罐罐奶茶</h3>
+        <p id="prod-2-desc">冰涼瓶裝，適合旅遊隨行。</p>
+      </div>
+      <div class="product">
+        <h3 id="prod-3-title">伴手禮禮盒</h3>
+        <p id="prod-3-desc">茶葉、果乾與插畫明信片組合。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p id="footer-contact">聯絡我們：jiuwa.camp@example.com｜IG／FB：@jiuwacamp</p>
+    <p id="footer-copyright">© 2025 九蛙秘境露營區. 保留所有權利。</p>
+  </footer>
+
+  <script>
+    const translations = {
+      zh: {
+        site: "九蛙秘境露營區",
+        nav: ["關於我們", "活動體驗", "在地商品", "聯絡我們"],
+        heroTitle: "走進自然・遇見螢光",
+        heroSubtitle: "沉浸於日月潭的生態秘境與在地風味",
+        booking: "線上訂位",
+        aboutTitle: "我們的理念",
+        about: ["綠色循環", "在地小農", "螢火蟲生態", "社會回饋"],
+        aboutDesc: [
+          "使用可分解產品與友善農法推動永續環境。",
+          "茶葉蛋、蛋糕與奶茶皆取材自日月潭在地農家。",
+          "保育棲地並提供賞螢導覽活動。",
+          "營收部分定期捐贈自然保育與教育機構。"
+        ],
+        activitiesTitle: "熱門活動",
+        act: ["賞螢導覽", "手作茶體驗"],
+        actDesc: ["每年3–5月限定活動。", "與茶農一起揉茶學習茶文化。"],
+        productsTitle: "小農風味商品",
+        prod: ["紅茶蛋糕", "罐罐奶茶", "伴手禮禮盒"],
+        prodDesc: ["採用當地紅茶與土雞蛋製作，香氣濃郁。", "冰涼瓶裝，適合旅遊隨行。", "茶葉、果乾與插畫明信片組合。"],
+        contact: "聯絡我們：jiuwa.camp@example.com｜IG／FB：@jiuwacamp",
+        copyright: "© 2025 九蛙秘境露營區. 保留所有權利。"
+      },
+      en: {
+        site: "JIUWA CAMP",
+        nav: ["About", "Activities", "Products", "Contact"],
+        heroTitle: "Into Nature · Firefly Encounters",
+        heroSubtitle: "Immerse in the nature of Sun Moon Lake and local flavors",
+        booking: "Book Now",
+        aboutTitle: "Our Philosophy",
+        about: ["Green Living", "Local Farmers", "Firefly Ecology", "Giving Back"],
+        aboutDesc: [
+          "Eco-friendly products and sustainable farming.",
+          "Local farm goods: tea eggs, cakes, milk tea.",
+          "Preserving habitats with seasonal firefly tours.",
+          "Donations to environmental and educational causes."
+        ],
+        activitiesTitle: "Popular Activities",
+        act: ["Firefly Tours", "Tea Workshops"],
+        actDesc: ["Available Mar–May", "Make tea and learn from local farmers."],
+        productsTitle: "Local Delicacies",
+        prod: ["Black Tea Cake", "Milk Tea Bottle", "Gift Box Set"],
+        prodDesc: ["Made with local eggs and black tea.", "Chilled and ready to go.", "Tea, snacks, and postcard set."],
+        contact: "Contact: jiuwa.camp@example.com | IG / FB: @jiuwacamp",
+        copyright: "© 2025 JIUWA CAMP. All rights reserved."
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("site-name").textContent = t.site;
+      ["nav-about", "nav-activities", "nav-products", "nav-contact"].forEach((id, i) => {
+        document.getElementById(id).textContent = t.nav[i];
+      });
+      document.getElementById("hero-title").textContent = t.heroTitle;
+      document.getElementById("hero-subtitle").textContent = t.heroSubtitle;
+      document.getElementById("booking-btn").textContent = t.booking;
+      document.getElementById("about-title").textContent = t.aboutTitle;
+      for (let i = 0; i < 4; i++) {
+        document.getElementById(`about-${i+1}-title`).textContent = t.about[i];
+        document.getElementById(`about-${i+1}-desc`).textContent = t.aboutDesc[i];
+      }
+      document.getElementById("activities-title").textContent = t.activitiesTitle;
+      for (let i = 0; i < 2; i++) {
+        document.getElementById(`act-${i+1}-title`).textContent = t.act[i];
+        document.getElementById(`act-${i+1}-desc`).textContent = t.actDesc[i];
+      }
+      document.getElementById("products-title").textContent = t.productsTitle;
+      for (let i = 0; i < 3; i++) {
+        document.getElementById(`prod-${i+1}-title`).textContent = t.prod[i];
+        document.getElementById(`prod-${i+1}-desc`).textContent = t.prodDesc[i];
+      }
+      document.getElementById("footer-contact").textContent = t.contact;
+      document.getElementById("footer-copyright").textContent = t.copyright;
+    }
+    window.onload = () => setLang('zh');
+  </script>
+</body>
+</html>
