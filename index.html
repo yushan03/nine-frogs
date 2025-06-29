@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九蛙秘境露營區 - LIFF 線上訂位</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2f5d2f;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #3d5a3d;
+      color: white;
+      border: none;
+      margin-top: 1.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2f472f;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .lang-toggle button {
+      margin-left: 0.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #2f5d2f;
+      font-weight: bold;
+    }
+  </style>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-toggle">
+      <button onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
+
+    <h1 id="title">線上訂位</h1>
+    <form id="bookingForm">
+      <label id="label-name" for="name">姓名</label>
+      <input type="text" id="name" required>
+
+      <label id="label-phone" for="phone">聯絡電話</label>
+      <input type="tel" id="phone" required>
+
+      <label id="label-date" for="date">預約日期</label>
+      <input type="date" id="date" required>
+
+      <label id="label-people" for="people">人數</label>
+      <select id="people">
+        <option value="1">1 人</option>
+        <option value="2">2 人</option>
+        <option value="3">3 人</option>
+        <option value="4">4 人</option>
+        <option value="5+">5 人以上</option>
+      </select>
+
+      <label id="label-note" for="note">備註</label>
+      <textarea id="note" rows="3"></textarea>
+
+      <button type="submit" id="submit-button">送出訂位</button>
+    </form>
+  </div>
+
+  <script>
+    const translations = {
+      zh: {
+        title: '線上訂位',
+        name: '姓名',
+        phone: '聯絡電話',
+        date: '預約日期',
+        people: '人數',
+        note: '備註',
+        submit: '送出訂位',
+        options: ['1 人', '2 人', '3 人', '4 人', '5 人以上']
+      },
+      en: {
+        title: 'Online Reservation',
+        name: 'Name',
+        phone: 'Phone Number',
+        date: 'Date',
+        people: 'People',
+        note: 'Note',
+        submit: 'Submit',
+        options: ['1 person', '2 people', '3 people', '4 people', '5+ people']
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('label-name').textContent = t.name;
+      document.getElementById('label-phone').textContent = t.phone;
+      document.getElementById('label-date').textContent = t.date;
+      document.getElementById('label-people').textContent = t.people;
+      document.getElementById('label-note').textContent = t.note;
+      document.getElementById('submit-button').textContent = t.submit;
+      const select = document.getElementById('people');
+      select.innerHTML = '';
+      t.options.forEach(opt => {
+        const option = document.createElement('option');
+        option.textContent = opt;
+        option.value = opt;
+        select.appendChild(option);
+      });
+    }
+
+    async function main() {
+      await liff.init({ liffId: "YOUR_LIFF_ID" });
+
+      document.getElementById("bookingForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const people = document.getElementById("people").value;
+        const note = document.getElementById("note").value;
+
+        const message = `🔖 露營訂位\n👤 姓名：${name}\n📞 電話：${phone}\n📅 日期：${date}\n👥 人數：${people}\n📝 備註：${note}`;
+
+        liff.sendMessages([{
+          type: 'text',
+          text: message
+        }]).then(() => {
+          alert("已送出訂位資訊！");
+          liff.closeWindow();
+        }).catch(err => {
+          alert("發送失敗：" + err);
+        });
+      });
+    }
+    main();
+    setLang('zh');
+  </script>
+</body>
+</html>
