@@ -1,0 +1,40 @@
+{
+  "zones": [
+    {
+      "name": "長腳赤蛙區",
+      "type": "碎石草地",
+      "size": "6M*8M（含車位）",
+      "count": 15,
+      "price": {
+        "weekday": 1000,
+        "holiday": 1000,
+        "special": 1000
+      },
+      "available": true
+    },
+    {
+      "name": "小雨蛙秘境包區",
+      "type": "碎石草皮",
+      "size": "6M*8M（含車位）",
+      "count": 1,
+      "price": {
+        "weekday": 2000,
+        "holiday": 2000,
+        "special": 2000
+      },
+      "available": true
+    },
+    {
+      "name": "竹林樹蛙包區",
+      "type": "碎石草皮",
+      "size": "6M*8M（含車位）",
+      "count": 1,
+      "price": {
+        "weekday": 3000,
+        "holiday": 3000,
+        "special": 3000
+      },
+      "available": true
+    }
+  ]
+}
