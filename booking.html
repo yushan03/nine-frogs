@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九蛙秘境露營區 - LIFF 預約</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <h2>預約露營</h2>
+  <form id="bookingForm">
+    <label>姓名：<input type="text" id="name" required></label><br>
+    <label>電話：<input type="tel" id="phone" required></label><br>
+    <label>日期：<input type="date" id="date" required></label><br>
+    <label>區域：
+      <select id="zone">
+        <option value="長腳赤蛙區">長腳赤蛙區</option>
+        <option value="小雨蛙秘境包區">小雨蛙秘境包區</option>
+        <option value="竹林樹蛙包區">竹林樹蛙包區</option>
+      </select>
+    </label><br>
+    <button type="submit">送出預約</button>
+  </form>
+
+  <script>
+    async function init() {
+      await liff.init({ liffId: "YOUR_LIFF_ID" });
+
+      document.getElementById("bookingForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const zone = document.getElementById("zone").value;
+
+        const message = `📢 預約通知\n👤 姓名：${name}\n📞 電話：${phone}\n📅 日期：${date}\n📍 營位區域：${zone}`;
+
+        liff.sendMessages([{ type: 'text', text: message }])
+          .then(() => {
+            alert("已送出預約資訊！");
+            liff.closeWindow();
+          }).catch((err) => {
+            alert("發送失敗：" + err);
+          });
+      });
+    }
+    init();
+  </script>
+</body>
+</html>
